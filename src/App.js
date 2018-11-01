@@ -32,6 +32,7 @@ class App extends Component {
           <Redirect exact from="/" to="/authors" />
           <Route path="/authors/:authorID" component={AuthorDetail} />
           <Route path="/authors/" component={AuthorsList} />
+          <Route path="/authors/add" component={AuthorForm} />
           )} />
         </Switch>
       );
