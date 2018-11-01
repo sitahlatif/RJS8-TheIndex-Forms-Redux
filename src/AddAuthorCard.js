@@ -1,11 +1,34 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Modal from "react-responsive-modal";
+
+import AuthorForm from "./AuthorForm";
 
 class AddAuthorCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+    this.onOpenModal = this.onOpenModal.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
+  }
+  onOpenModal() {
+    this.setState({ open: true });
+  }
+
+  onCloseModal() {
+    this.setState({ open: false });
+  }
   render() {
+    const { open } = this.state;
     return (
       <div className="col-lg-4 col-md-6 col-12">
-        <Link to="" className="card">
+        <div>
+          <Modal open={open} onClose={this.onCloseModal} center>
+            <AuthorForm />
+          </Modal>
+        </div>
+        <div className="card" onClick={this.onOpenModal}>
           <div className="image">
             <img
               className="card-img-top img-fluid"
@@ -17,9 +40,8 @@ class AddAuthorCard extends Component {
             <h5 className="card-title">
               <span>Add Author</span>
             </h5>
-            <small className="card-text"> books</small>
           </div>
-        </Link>
+        </div>
       </div>
     );
   }

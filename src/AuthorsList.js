@@ -12,7 +12,6 @@ class AuthorsList extends Component {
   componentDidMount() {
     this.props.fetchAllAuthors();
   }
-
   render() {
     const authorCards = this.props.filteredAuthors.map(author => (
       <AuthorCard key={author.first_name + author.last_name} author={author} />
@@ -23,7 +22,7 @@ class AuthorsList extends Component {
         <h3>Authors</h3>
         <SearchBar />
         <div className="row">
-          <AddAuthorCard /> {authorCards}
+          <AddAuthorCard onClick={this.onOpenModal} /> {authorCards}
         </div>
       </div>
     );
