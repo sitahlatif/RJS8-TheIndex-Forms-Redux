@@ -10,8 +10,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_AUTHORS:
       return {
         ...state,
-        authors: state.authors.concat(action.payload),
-        filteredAuthors: state.filteredAuthors.concat(action.payload)
+        authors: action.payload,
+        filteredAuthors: action.payload
       };
 
     case actionTypes.FILTER_AUTHORS:
@@ -22,6 +22,12 @@ const reducer = (state = initialState, action) => {
             .toLowerCase()
             .includes(action.payload);
         })
+      };
+    case actionTypes.SUBMIT_AUTHOR:
+      return {
+        ...state,
+        authors: state.authors.concat(action.payload),
+        filteredAuthors: state.authors.concat(action.payload)
       };
     default:
       return state;

@@ -9,6 +9,8 @@ import AuthorDetail from "./AuthorDetail";
 
 import { connect } from "react-redux";
 
+import * as actionCreators from "./store/actions/index";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,10 @@ class App extends Component {
       authors: [], //remove this. We do not need it.
       loading: true
     };
+  }
+
+  componentDidMount() {
+    this.props.fetchAllAuthors();
   }
 
   getView() {
@@ -52,4 +58,15 @@ const mapStateToProps = state => {
     authors: state.rootAuthors.authors
   };
 };
-export default withRouter(connect(mapStateToProps)(App));
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAllAuthors: () => dispatch(actionCreators.fetchAuthors())
+  };
+};
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

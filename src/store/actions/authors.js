@@ -23,3 +23,10 @@ export const filterAuthors = query => {
     payload: query
   };
 };
+
+export const submitAuthor = newAuthor => {
+  return {
+    type: actionTypes.SUBMIT_AUTHOR,
+    payload: newAuthor
+  };
+};
