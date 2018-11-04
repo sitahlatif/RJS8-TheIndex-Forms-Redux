@@ -7,11 +7,9 @@ class AuthorForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 20,
       first_name: "",
       last_name: "",
-      imageUrl: "",
-      books: [20, 18, 21, 19]
+      imageUrl: ""
     };
     this.submitAuthor = this.submitAuthor.bind(this);
     this.onTextchange = this.onTextchange.bind(this);
@@ -19,13 +17,13 @@ class AuthorForm extends Component {
 
   submitAuthor(event) {
     event.preventDefault();
-    this.setState({ id: this.state.id + 1 });
     this.props.onSubmitAuthor(this.state);
   }
 
   onTextchange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
   render() {
     return (
       <form onSubmit={this.submitAuthor}>

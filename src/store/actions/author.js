@@ -9,7 +9,7 @@ const instance = axios.create({
 export const fetchAuthorDetail = authorID => {
   return dispatch => {
     instance
-      .get(`/api/authors/${authorID}`)
+      .get(`/api/authors/${authorID}/`)
       .then(res => res.data)
       .then(author =>
         dispatch({

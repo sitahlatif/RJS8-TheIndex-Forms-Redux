@@ -7,24 +7,14 @@ class BookForm extends Component {
     super(props);
     this.state = {
       title: "",
-      authors: [
-        {
-          name:
-            this.props.author.first_name + " " + this.props.author.last_name,
-          id: this.props.author.id
-        }
-      ],
       color: ""
     };
     this.onTextChange = this.onTextChange.bind(this);
-    this.pushAuthorToForm = this.pushAuthorToForm.bind(this);
   }
 
   onTextChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-
-  pushAuthorToForm(event) {}
 
   render() {
     return (
