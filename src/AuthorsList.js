@@ -18,7 +18,7 @@ class AuthorsList extends Component {
         <h3>Authors</h3>
         <SearchBar />
         <div className="row">
-          <AddAuthorCard onClick={this.onOpenModal} /> {authorCards}
+          <AddAuthorCard /> {authorCards}
         </div>
       </div>
     );

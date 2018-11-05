@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
             .includes(action.payload);
         })
       };
-    case actionTypes.SUBMIT_AUTHOR:
+    case actionTypes.POST_AUTHOR:
       return {
         ...state,
         authors: state.authors.concat(action.payload),

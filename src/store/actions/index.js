@@ -1,3 +1,3 @@
-export { fetchAuthorDetail } from "./author";
+export { fetchAuthorDetail, postBook } from "./author";
 
-export { fetchAuthors, filterAuthors, submitAuthor } from "./authors";
+export { fetchAuthors, filterAuthors, postAuthor } from "./authors";

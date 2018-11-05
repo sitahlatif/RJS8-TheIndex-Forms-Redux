@@ -19,3 +19,22 @@ export const fetchAuthorDetail = authorID => {
       );
   };
 };
+
+export const postBook = (book, authorID) => {
+  book = {
+    ...book,
+    authors: [authorID]
+  };
+  return dispatch => {
+    instance
+      .post(`/api/books/`, book)
+      .then(res => res.data)
+      .then(createdBook =>
+        dispatch({
+          type: actionTypes.POST_BOOK,
+          payload: createdBook
+        })
+      )
+      .catch(error => console.error(error));
+  };
+};
