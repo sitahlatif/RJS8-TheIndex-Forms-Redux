@@ -34,6 +34,7 @@ export const postAuthor = newAuthor => {
           type: actionTypes.POST_AUTHOR,
           payload: createdAuthor
         })
-      );
+      )
+      .catch(error => console.log(error.response));
   };
 };

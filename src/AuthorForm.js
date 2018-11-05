@@ -9,7 +9,8 @@ class AuthorForm extends Component {
     this.state = {
       first_name: "",
       last_name: "",
-      imageUrl: ""
+      imageUrl: "",
+      books: []
     };
     this.submitAuthor = this.submitAuthor.bind(this);
     this.onTextchange = this.onTextchange.bind(this);
