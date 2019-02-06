@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   authors: [],
-  filteredAuthors: []
+  filteredAuthors: [],
+  loading: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +12,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         authors: action.payload,
-        filteredAuthors: action.payload
+        filteredAuthors: action.payload,
+        loading: false
       };
 
     case actionTypes.FILTER_AUTHORS:
