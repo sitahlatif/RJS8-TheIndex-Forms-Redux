@@ -25,4 +25,15 @@ export const filterAuthors = query => {
 };
 
 //POST THE AUTHOR TO https://the-index-api.herokuapp.com/api/authors/
-export const postAuthor = newAuthor => {};
+export const postAuthor = newAuthor => {
+  return async dispatch => {
+    try {
+      const res = await instance.post("/api/authors/", newAuthor);
+      const author = res.data;
+      dispatch({
+        type: actionTypes.POST_AUTHOR,
+        payload: author
+      });
+    } catch (err) {}
+  };
+};
