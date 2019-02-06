@@ -7,16 +7,18 @@ const instance = axios.create({
 });
 
 export const fetchAuthorDetail = authorID => {
-  return dispatch => {
-    instance
-      .get(`/api/authors/${authorID}/`)
-      .then(res => res.data)
-      .then(author =>
-        dispatch({
-          type: actionTypes.FETCH_AUTHOR_DETAIL,
-          payload: author
-        })
-      );
+  return async dispatch => {
+    dispatch({
+      type: actionTypes.SET_AUTHOR_LOADING
+    });
+    try {
+      const res = await instance.get(`/api/authors/${authorID}/`);
+      const author = res.data;
+      dispatch({
+        type: actionTypes.FETCH_AUTHOR_DETAIL,
+        payload: author
+      });
+    } catch (err) {}
   };
 };
 

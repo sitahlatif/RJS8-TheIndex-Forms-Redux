@@ -12,20 +12,12 @@ import { connect } from "react-redux";
 import * as actionCreators from "./store/actions/index";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authors: [], //remove this. We do not need it.
-      loading: true
-    };
-  }
-
   componentDidMount() {
     this.props.fetchAllAuthors();
   }
 
   getView() {
-    if (this.props.authors.id) {
+    if (this.props.loading) {
       return <Loading />;
     } else {
       return (
@@ -55,7 +47,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    authors: state.rootAuthors.authors
+    authors: state.rootAuthors.authors,
+    loading: state.rootAuthors.loading
   };
 };
 
