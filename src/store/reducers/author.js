@@ -22,6 +22,7 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.POST_BOOK:
     //UPDATE THE STATE ACCORDINGLY
+
     default:
       return state;
   }
