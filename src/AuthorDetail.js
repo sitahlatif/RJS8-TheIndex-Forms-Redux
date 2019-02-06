@@ -18,18 +18,19 @@ class AuthorDetail extends Component {
       return <Loading />;
     } else {
       const author = this.props.author;
+      const authorName = `${author.first_name} ${author.last_name}`;
       return (
         <div className="author">
           <div>
-            <h3>{author.first_name + " " + author.last_name}</h3>
+            <h3>{authorName}</h3>
             <img
               src={author.imageUrl}
               className="img-thumbnail img-fluid"
-              alt={author.first_name + " " + author.last_name}
+              alt={authorName}
             />
           </div>
           <BookTable books={author.books} />
-          <AddBookModal authorID={author.id} />
+          <AddBookModal author={author} />
         </div>
       );
     }

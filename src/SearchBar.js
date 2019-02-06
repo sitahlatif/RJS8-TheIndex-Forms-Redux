@@ -14,7 +14,7 @@ class SearchBar extends Component {
           <input
             className="form-control"
             type="text"
-            onChange={event => this.props.onSearch(event.target.value)}
+            onChange={event => this.props.filterAuthors(event.target.value)}
           />
           <div className="input-group-append">
             <span className="input-group-text">
@@ -27,18 +27,12 @@ class SearchBar extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    authors: state.rootAuthors.filteredAuthors
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    onSearch: query => dispatch(actionCreators.filterAuthors(query))
+    filterAuthors: query => dispatch(actionCreators.filterAuthors(query))
   };
 };
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(SearchBar);

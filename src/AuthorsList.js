@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 class AuthorsList extends Component {
   render() {
     const authorCards = this.props.filteredAuthors.map(author => (
-      <AuthorCard key={author.first_name + author.last_name} author={author} />
+      <AuthorCard key={author.id} author={author} />
     ));
 
     return (
@@ -27,7 +27,6 @@ class AuthorsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    authors: state.rootAuthors.authors,
     filteredAuthors: state.rootAuthors.filteredAuthors
   };
 };
