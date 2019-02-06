@@ -36,6 +36,7 @@ export const postAuthor = (newAuthor, closeModal) => {
         type: actionTypes.POST_AUTHOR,
         payload: author
       });
+      dispatch(filterAuthors(""));
       closeModal();
     } catch (err) {
       dispatch({
