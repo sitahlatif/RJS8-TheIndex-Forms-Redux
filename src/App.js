@@ -16,7 +16,7 @@ class App extends Component {
     this.props.fetchAllAuthors();
   }
 
-  getView() {
+  getView = () => {
     if (this.props.loading) {
       return <Loading />;
     } else {
@@ -29,7 +29,7 @@ class App extends Component {
         </Switch>
       );
     }
-  }
+  };
 
   render() {
     return (
