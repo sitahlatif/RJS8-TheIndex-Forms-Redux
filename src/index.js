@@ -11,10 +11,12 @@ import thunk from "redux-thunk";
 
 import authorReducer from "./store/reducers/author";
 import authorsReducer from "./store/reducers/authors";
+import errorsReducer from "./store/reducers/errors";
 
 const rootReducer = combineReducers({
   rootAuthor: authorReducer,
-  rootAuthors: authorsReducer
+  rootAuthors: authorsReducer,
+  rootErrors: errorsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

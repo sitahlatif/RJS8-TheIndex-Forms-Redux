@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
-import * as actionCreators from "./store/actions";
 
 import BookForm from "./BookForm";
 import Modal from "react-responsive-modal";
@@ -20,7 +17,7 @@ class AddBookModal extends Component {
     return (
       <div>
         <Modal open={open} onClose={this.onCloseModal} center>
-          <BookForm author={this.props.author} />
+          <BookForm author={this.props.author} closeModal={this.onCloseModal} />
         </Modal>
         <input type="button" onClick={this.onOpenModal} value="Add New Book!" />
       </div>
@@ -28,13 +25,4 @@ class AddBookModal extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    resetErrors: () => dispatch(actionCreators.resetErrors())
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(AddBookModal);
+export default AddBookModal;
